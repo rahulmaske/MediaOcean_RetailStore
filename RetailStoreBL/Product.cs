@@ -27,7 +27,11 @@ namespace RetailStoreBL
 
         public float GetProductLevy()
         {
-            return ProductCategory.GetLevyForCategory((int)ProductCategory.Category.CategoryA);
+            return 10.00F;
+        }
+        public float GetSalesTaxForProduct()
+        {
+            return (productPrice * 10.00F) / 100;
         }
     }
 
@@ -49,7 +53,11 @@ namespace RetailStoreBL
 
         public float GetProductLevy()
         {
-            return ProductCategory.GetLevyForCategory((int)ProductCategory.Category.CategoryB);
+            return 20.00F;
+        }
+        public float GetSalesTaxForProduct()
+        {
+            return (productPrice * 20.00F) / 100;
         }
     }
 
@@ -71,7 +79,11 @@ namespace RetailStoreBL
 
         public float GetProductLevy()
         {
-            return ProductCategory.GetLevyForCategory((int) ProductCategory.Category.CategoryC);
+            return 0;
+        }
+        public float GetSalesTaxForProduct()
+        {
+            return 0;
         }
     }
 }

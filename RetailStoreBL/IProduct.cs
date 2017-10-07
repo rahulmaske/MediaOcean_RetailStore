@@ -11,5 +11,7 @@ namespace RetailStoreBL
         string productName { get; set; }
         float GetProductPrice();
         float GetProductLevy();
+
+        float GetSalesTaxForProduct();
     }
 }

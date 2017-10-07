@@ -50,7 +50,7 @@
             this.txtBill.Multiline = true;
             this.txtBill.Name = "txtBill";
             this.txtBill.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtBill.Size = new System.Drawing.Size(472, 238);
+            this.txtBill.Size = new System.Drawing.Size(588, 238);
             this.txtBill.TabIndex = 1;
             // 
             // lblBillNo
@@ -72,16 +72,16 @@
             this.btnAddItem.Visible = false;
             this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(496, 359);
+            this.ClientSize = new System.Drawing.Size(625, 359);
             this.Controls.Add(this.btnAddItem);
             this.Controls.Add(this.lblBillNo);
             this.Controls.Add(this.txtBill);
             this.Controls.Add(this.btnNewBill);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();

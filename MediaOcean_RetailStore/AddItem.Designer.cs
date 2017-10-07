@@ -48,11 +48,12 @@
             this.cbCategory.Location = new System.Drawing.Point(97, 47);
             this.cbCategory.Name = "cbCategory";
             this.cbCategory.Size = new System.Drawing.Size(121, 21);
-            this.cbCategory.TabIndex = 0;
+            this.cbCategory.TabIndex = 2;
             // 
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(97, 18);
+            this.txtName.MaxLength = 10;
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(100, 20);
             this.txtName.TabIndex = 1;
@@ -62,7 +63,8 @@
             this.txtPrice.Location = new System.Drawing.Point(97, 77);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(100, 20);
-            this.txtPrice.TabIndex = 2;
+            this.txtPrice.TabIndex = 3;
+            this.txtPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrice_KeyPress);
             // 
             // label1
             // 
@@ -97,7 +99,7 @@
             this.btnAdd.Location = new System.Drawing.Point(122, 121);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 6;
+            this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             // 
@@ -107,7 +109,7 @@
             this.btnCancel.Location = new System.Drawing.Point(197, 121);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 7;
+            this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 

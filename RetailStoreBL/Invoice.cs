@@ -20,28 +20,28 @@ namespace RetailStoreBL
         }
         public string printBill()
         {
-            float totalPrice = 0.0F, totalLevy = 0.0F, total;
+            float totalPrice = 0.0F, totalTax = 0.0F, total;
             StringBuilder outputString = new StringBuilder();
 
-            outputString.Append("Sr.No\tProduct Name\t\t\tPrice\t\tLevy");
+            outputString.Append("Sr.No\tProduct Name\t\t\tPrice\t\tTax");
             outputString.Append(Environment.NewLine);
-            outputString.Append("------------------------------------------------------------------------------------------------------------------------------------");
+            outputString.Append("----------------------------------------------------------------------------------------------------------------------------------------");
             outputString.Append(Environment.NewLine);
 
             foreach (IProduct singleProduct in invoiceItems)
             {
                 
-                outputString.Append((invoiceItems.IndexOf(singleProduct) + 1) + "\t" + singleProduct.productName + "\t\t\t\t" + singleProduct.GetProductPrice() + "\t\t" + ((singleProduct.GetProductPrice() * singleProduct.GetProductLevy()) / 100) + " (@" + singleProduct.GetProductLevy() + "%)");
+                outputString.Append((invoiceItems.IndexOf(singleProduct) + 1) + "\t" + singleProduct.productName.PadRight(17, ' ') + "\t\t\t" + singleProduct.GetProductPrice() + "\t\t" + singleProduct.GetSalesTaxForProduct() + " (@" + singleProduct.GetProductLevy() + "%)");
                 outputString.Append(Environment.NewLine);
                 totalPrice = totalPrice + singleProduct.GetProductPrice();
-                totalLevy = totalLevy + ((singleProduct.GetProductPrice() * singleProduct.GetProductLevy()) / 100);
+                totalTax = totalTax + singleProduct.GetSalesTaxForProduct();
             }
 
-            outputString.Append("------------------------------------------------------------------------------------------------------------------------------------");
+            outputString.Append("----------------------------------------------------------------------------------------------------------------------------------------");
             outputString.Append(Environment.NewLine);
-            outputString.Append("Sub-Total\t\t\t\t\t"+ totalPrice + "\t\t" + totalLevy);
+            outputString.Append("Sub-Total\t\t\t\t\t"+ totalPrice + "\t\t" + totalTax);
             outputString.Append(Environment.NewLine);
-            total = totalPrice + totalLevy;
+            total = totalPrice + totalTax;
             outputString.Append(Environment.NewLine);
             outputString.Append("Total Amount: " + total);
             outputString.Append(Environment.NewLine);

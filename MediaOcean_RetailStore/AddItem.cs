@@ -35,5 +35,48 @@ namespace MediaOcean_RetailStore
         { return cbCategory.SelectedIndex; }
         public float GetPrice()
         { return float.Parse(txtPrice.Text); }
+
+        private void txtPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == ',')
+            {
+                e.KeyChar = '.';
+            }
+
+            if (!char.IsNumber(e.KeyChar) && (Keys)e.KeyChar != Keys.Back && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            if (char.IsNumber(e.KeyChar) && (this.txtPrice.Text.Contains(".") && this.txtPrice.Text.LastIndexOf('.') == this.txtPrice.Text.Length - 3))
+            {
+                e.Handled = true;
+            }
+
+            if (char.IsNumber(e.KeyChar) && !this.txtPrice.Text.Contains("."))
+            {
+                if (this.txtPrice.Text.Length == 5)
+                {
+                    e.Handled = true;
+                }
+                
+            }
+
+            if (e.KeyChar == '.')
+            {
+                if (this.txtPrice.Text.Length == 0)
+                {
+                    this.txtPrice.Text = "0.";
+                    this.txtPrice.SelectionStart = 2;
+                    e.Handled = true;
+                }
+                else if (this.txtPrice.Text.Contains("."))
+                {
+                    e.Handled = true;
+                }
+            }
+
+            base.OnKeyPress(e);
+        }
     }
 }
